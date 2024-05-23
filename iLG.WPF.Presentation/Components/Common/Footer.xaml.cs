@@ -10,16 +10,17 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace iLG.WPF.Presentation.Views.Common
+namespace iLG.WPF.Presentation.Components.Common
 {
     /// <summary>
-    /// Interaction logic for LoginView.xaml
+    /// Interaction logic for Footer.xaml
     /// </summary>
-    public partial class LoginView : BaseView
+    public partial class Footer : UserControl
     {
-        public LoginView()
+        public Footer()
         {
             InitializeComponent();
         }

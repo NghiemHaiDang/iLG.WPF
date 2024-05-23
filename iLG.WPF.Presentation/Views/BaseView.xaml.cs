@@ -1,4 +1,6 @@
-﻿using System;
+﻿using iLG.WPF.Presentation.Components.Common;
+using iLG.WPF.Presentation.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +21,19 @@ namespace iLG.WPF.Presentation.Views
     /// </summary>
     public partial class BaseView : Window
     {
+        private iLGSystem? _iLGSystem;
+
         public BaseView()
         {
             InitializeComponent();
+            CreateAndInitializeSystemUserControl();
+        }
+
+        private void CreateAndInitializeSystemUserControl()
+        {
+            _iLGSystem = new iLGSystem();
+            this.Content = _iLGSystem;
         }
     }
 }
+
