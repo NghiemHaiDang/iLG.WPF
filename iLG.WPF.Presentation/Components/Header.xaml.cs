@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace iLG.WPF.Presentation.Components.Common
+namespace iLG.WPF.Presentation.Components
 {
     /// <summary>
     /// Interaction logic for Header.xaml
