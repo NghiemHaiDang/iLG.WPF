@@ -7,12 +7,23 @@ using System.Windows;
 
 namespace iLG.WPF.Presentation.Resources.InformationStyle
 {
-    public enum Color
+    /*Screen size*/
+    public enum SCREEN_SIZE
+    {
+        Width = 1440,
+        Height = 1024
+    }
+
+    /*Color*/
+    public enum COLOR
     {
         Color1 = 0xBB053A,
-        Color2 = 0x000000
+        Color2 = 0x000000,
+        ColorOpacity = 0xFFFFFF
     }
-    public enum FontSize
+
+    /*Font size*/
+    public enum FONT_SIZE
     {
         LogoSize = 120,
         TitleSize1 = 36,
@@ -23,11 +34,11 @@ namespace iLG.WPF.Presentation.Resources.InformationStyle
         DescriptionColor4 = 18,
         DescriptionColor5 = 14
     }
-    public enum Opacity
+
+    /*Opacity*/
+    public enum OPACITY
     {
-        Opaque = 1,
-        SemiTransparent = 50,
-        Transparent = 0
+        Opaque = 2,
     }
 
 }
