@@ -15,18 +15,21 @@ namespace iLG.WPF.Presentation.Resources.Converter
         {
             if (value is COLOR color)
             {
-                return System.Windows.Media.Color.FromArgb(
-                    (byte)((int)color >> 24),
-                    (byte)((int)color >> 16),
-                    (byte)((int)color >> 8),
-                    (byte)((int)color));
+                byte r = (byte)(((uint)color & 0xFF0000) >> 16);
+                byte g = (byte)(((uint)color & 0x00FF00) >> 8);
+                byte b = (byte)((uint)color & 0x0000FF);
+                return System.Windows.Media.Color.FromRgb(r, g, b);
             }
             return System.Windows.Media.Colors.Transparent;
         }
 
         public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            throw new NotImplementedException();
+            if (value is System.Windows.Media.Color color)
+            {
+                return (COLOR)(((uint)color.R << 16) | ((uint)color.G << 8) | (uint)color.B);
+            }
+            return (COLOR)0;
         }
     }
 }

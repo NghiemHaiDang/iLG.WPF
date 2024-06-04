@@ -8,9 +8,6 @@
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/Resources/iLGStyle.xaml"/>
-                <ResourceDictionary>
-                    <converter:ColorConverter x:Key="ColorConverter" />
-                </ResourceDictionary>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

@@ -6,7 +6,10 @@
              xmlns:local="clr-namespace:iLG.WPF.Presentation.Components.Common"
              mc:Ignorable="d"
              Background="{Binding Source={StaticResource PreBackgound}, Mode=OneWay}">
-    <Grid>
-        <Rectangle Width="915" Height="724" Fill="{Binding Source={StaticResource background-opacity}}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+    <Grid >
+        <StackPanel Width="915" Height="724" Background="Black">
+            
+        </StackPanel>
     </Grid>
+    
 </UserControl>

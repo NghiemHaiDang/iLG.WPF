@@ -3,13 +3,16 @@
                     xmlns:local="clr-namespace:iLG.WPF.Presentation.Resources.InformationStyle"
                     xmlns:converter="clr-namespace:iLG.WPF.Presentation.Resources.Converter"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
-    
+
+    <converter:ColorConverter x:Key="ColorConverter" />
+    <converter:NumberConverter x:Key="NumberConverter" />
+
     <!--Background-->
     <LinearGradientBrush x:Key="PreBackgound" StartPoint="0,0" EndPoint="0,1">
         <GradientStop Color="#FFFFFF" Offset="0" />
-        <GradientStop Color="{Binding Source={x:Static local:COLOR.Color1}, Converter={StaticResource converter:ColorConverter}, Mode=OneWay}" Offset="1" />
+        <GradientStop Color="{Binding Source={x:Static local:COLOR.Color1}, Converter={StaticResource ColorConverter},Mode=OneWay}" Offset="1.5" />
     </LinearGradientBrush>
-    <LinearGradientBrush x:Key="Background" StartPoint="0,0" EndPoint="0,1">
+    <LinearGradientBrush x:Key="PreBackgound1" StartPoint="0,0" EndPoint="0,1">
         <GradientStop Color="#FFFFFF" Offset="0" />
         <GradientStop Color="#BB053A" Offset="1" />
     </LinearGradientBrush>
@@ -23,8 +26,8 @@
     </Style>
 
     <Style TargetType="UserControl" x:Key="window-size">
-        <Setter Property="Width" Value="{Binding Source={x:Static local:SCREEN_SIZE.Width}, Mode=OneWay}" />
-        <Setter Property="Height" Value="{Binding Source={x:Static local:SCREEN_SIZE.Height}, Mode=OneWay}" />
+        <Setter Property="Width" Value="{Binding Source={x:Static local:SCREEN_SIZE.Width}, Converter={StaticResource NumberConverter}, Mode=OneWay}" />
+        <Setter Property="Height" Value="{Binding Source={x:Static local:SCREEN_SIZE.Height},Converter={StaticResource NumberConverter}, Mode=OneWay}" />
     </Style>
 
     <!--Text-->
