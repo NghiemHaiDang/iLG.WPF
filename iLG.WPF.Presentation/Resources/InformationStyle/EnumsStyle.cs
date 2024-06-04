@@ -18,6 +18,7 @@ namespace iLG.WPF.Presentation.Resources.InformationStyle
     public enum COLOR
     {
         Color1 = 0xBB053A,
+        
         Color2 = 0x000000,
         ColorOpacity = 0xFFFFFF
     }
