@@ -7,19 +7,13 @@ using System.Windows;
 
 namespace iLG.WPF.Presentation.Resources.InformationStyle
 {
-    /*Screen size*/
-    public enum SCREEN_SIZE
-    {
-        Width = 1440,
-        Height = 1024
-    }
-
     /*Color*/
     public enum COLOR
     {
         Color1 = 0xBB053A,
-        
         Color2 = 0x000000,
+        Color3 = 0xBB053A,
+        Color4 = 0xFFFFFF,
         ColorOpacity = 0xFFFFFF
     }
 

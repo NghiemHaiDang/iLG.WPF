@@ -4,54 +4,92 @@
                     xmlns:converter="clr-namespace:iLG.WPF.Presentation.Resources.Converter"
                     xmlns:sys="clr-namespace:System;assembly=mscorlib">
 
-    <converter:ColorConverter x:Key="ColorConverter" />
-    <converter:NumberConverter x:Key="NumberConverter" />
+    <converter:ColorValueConverter x:Key="ColorValueConverter" />
+    <converter:NumberValueConverter x:Key="NumberValueConverter" />
+    <converter:ColorBrushValueConverter x:Key="ColorBrushValueConverter" />
 
     <!--Background-->
     <LinearGradientBrush x:Key="PreBackgound" StartPoint="0,0" EndPoint="0,1">
         <GradientStop Color="#FFFFFF" Offset="0" />
-        <GradientStop Color="{Binding Source={x:Static local:COLOR.Color1}, Converter={StaticResource ColorConverter},Mode=OneWay}" Offset="1.5" />
+        <GradientStop Color="{Binding Source={x:Static local:COLOR.Color1}, Converter={StaticResource ColorValueConverter},Mode=OneWay}" Offset="1.5" />
     </LinearGradientBrush>
     <LinearGradientBrush x:Key="PreBackgound1" StartPoint="0,0" EndPoint="0,1">
         <GradientStop Color="#FFFFFF" Offset="0" />
         <GradientStop Color="#BB053A" Offset="1" />
     </LinearGradientBrush>
-    <Style TargetType="Grid" x:Key="background-opacity">
+    <Style TargetType="StackPanel" x:Key="background-opacity">
         <Setter Property="Background">
             <Setter.Value>
-                <SolidColorBrush Color="{Binding Source={x:Static local:COLOR.ColorOpacity}, Mode=OneWay}"
-                                    Opacity="0.2" />
+                <SolidColorBrush Color="{Binding Source={x:Static local:COLOR.ColorOpacity}, Converter={StaticResource ColorValueConverter}, Mode=OneWay}" Opacity="0.2" />
             </Setter.Value>
         </Setter>
     </Style>
 
-    <Style TargetType="UserControl" x:Key="window-size">
-        <Setter Property="Width" Value="{Binding Source={x:Static local:SCREEN_SIZE.Width}, Converter={StaticResource NumberConverter}, Mode=OneWay}" />
-        <Setter Property="Height" Value="{Binding Source={x:Static local:SCREEN_SIZE.Height},Converter={StaticResource NumberConverter}, Mode=OneWay}" />
-    </Style>
-
     <!--Text-->
     <Style TargetType="TextBlock" x:Key="text-logo">
-        <Setter Property="Foreground" Value="{Binding Source={x:Static local:COLOR.Color1}, Mode=OneWay}" />
-        <Setter Property="FontSize" Value="{Binding Source={x:Static local:FONT_SIZE.LogoSize}, Mode=OneWay}" />
+        <Setter Property="Foreground" Value="{Binding Source={x:Static local:COLOR.Color1}, Converter={StaticResource ColorBrushValueConverter},Mode=OneWay}" />
+        <Setter Property="FontSize" Value="{Binding Source={x:Static local:FONT_SIZE.LogoSize}, Converter={StaticResource NumberValueConverter}, Mode=OneWay}" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
     <Style TargetType="TextBlock" x:Key="text-title-1">
-        <Setter Property="Foreground" Value="{Binding Source={x:Static local:COLOR.Color1},Mode=OneWay}" />
-        <Setter Property="FontSize" Value="{Binding Source={x:Static local:FONT_SIZE.TitleSize1}, Mode=OneWay}" />
+        <Setter Property="Foreground" Value="{Binding Source={x:Static local:COLOR.Color1}, Converter={StaticResource ColorBrushValueConverter},Mode=OneWay}" />
+        <Setter Property="FontSize" Value="{Binding Source={x:Static local:FONT_SIZE.TitleSize1},Converter={StaticResource NumberValueConverter}, Mode=OneWay}" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
 
     <Style TargetType="TextBlock" x:Key="text-title-2">
-        <Setter Property="Foreground" Value="{Binding Source={x:Static local:COLOR.Color1}, Mode=OneWay}" />
-        <Setter Property="FontSize" Value="{Binding Source={x:Static local:FONT_SIZE.TitleSize2}, Mode=OneWay}" />
+        <Setter Property="Foreground" Value="{Binding Source={x:Static local:COLOR.Color1},Converter={StaticResource ColorBrushValueConverter},Mode=OneWay}" />
+        <Setter Property="FontSize" Value="{Binding Source={x:Static local:FONT_SIZE.TitleSize2},Converter={StaticResource NumberValueConverter}, Mode=OneWay}" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
     <Style TargetType="TextBlock" x:Key="text-description-1">
-        <Setter Property="Foreground" Value="{Binding Source={x:Static local:COLOR.Color2},Mode=OneWay}" />
-        <Setter Property="FontSize" Value="{Binding Source={x:Static local:FONT_SIZE.TitleSize2},Mode=OneWay}" />
+        <Setter Property="Foreground" Value="{Binding Source={x:Static local:COLOR.Color2},Converter={StaticResource ColorBrushValueConverter},Mode=OneWay}" />
+        <Setter Property="FontSize" Value="{Binding Source={x:Static local:FONT_SIZE.TitleSize2},Converter={StaticResource NumberValueConverter},Mode=OneWay}" />
         <Setter Property="FontWeight" Value="Bold" />
     </Style>
   
+    <!--Button-->
+    <Style TargetType="Button" x:Key="button-confirm">
+        <Setter Property="Background" Value="{Binding Source={x:Static local:COLOR.Color1}, Converter={StaticResource ColorBrushValueConverter}, Mode=OneWay}" />
+        <Setter Property="Width" Value="157" />
+        <Setter Property="Height" Value="50" />
+        <Setter Property="Foreground" Value="{Binding Source={x:Static local:COLOR.Color4}, Converter={StaticResource ColorBrushValueConverter}, Mode=OneWay}" />
+        <Setter Property="FontSize" Value="{Binding Source={x:Static local:FONT_SIZE.TitleSize2}, Converter={StaticResource NumberValueConverter}, Mode=OneWay}" />
+        <Setter Property="BorderBrush" Value="{Binding Source={x:Static local:COLOR.Color2}, Converter={StaticResource ColorBrushValueConverter}, Mode=OneWay}" />
+        <Setter Property="BorderThickness" Value="2" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+    <Style TargetType="Button" x:Key="button-cancel">
+
+    </Style>
+    
+    <!--Textbox-->
+    <Style TargetType="TextBox" x:Key="textbox">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border CornerRadius="5" 
+                            Background="{TemplateBinding Background}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer x:Name="PART_ContentHost" />
+                        </Border>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="Width" Value="500"/>
+        <Setter Property="Height" Value="50" />
+    </Style>
 </ResourceDictionary>

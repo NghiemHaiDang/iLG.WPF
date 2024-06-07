@@ -7,26 +7,8 @@ using System.Threading.Tasks;
 
 namespace iLG.WPF.Infrastructure.Repositories.Abstractions
 {
-    public class IUserRepository : IBaseHttpRepository<User>
+    public interface IUserRepository
     {
-        public Task DeleteAsync(string url)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<User> IBaseHttpRepository<User>.GetAsync(string url)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<User> IBaseHttpRepository<User>.PostAsync(string url, User entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<User> IBaseHttpRepository<User>.PutAsync(string url, User entity)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

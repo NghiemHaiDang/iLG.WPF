@@ -9,40 +9,29 @@ namespace iLG.WPF.Presentation.Commands.Generic
 {
     public class RelayCommand : ICommand
     {
-        private readonly Predicate<object> _canExecute;
         private readonly Action<object> _execute;
+        private readonly Func<object, bool> _canExecute;
 
-        public RelayCommand(Predicate<object> canExecute, Action<object> execute)
+        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
         {
+            _execute = execute ?? throw new ArgumentNullException(nameof(execute));
             _canExecute = canExecute;
-            _execute = execute;
         }
+
         public event EventHandler? CanExecuteChanged
         {
-            add => CommandManager.RequerySuggested += value;
-            remove => CommandManager.RequerySuggested -= value;
+            add { CommandManager.RequerySuggested += value; }
+            remove { CommandManager.RequerySuggested -= value; }
         }
-        public bool CanExecute(object? parameter)
+
+        public bool CanExecute(object parameter)
         {
-            try
-            {
-                return _canExecute?.Invoke(parameter ?? throw new ArgumentNullException(nameof(parameter))) ?? false;
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            return _canExecute == null || _canExecute(parameter);
         }
-        public void Execute(object? parameter)
+
+        public void Execute(object parameter)
         {
-            try
-            {
-                _execute(parameter ?? throw new ArgumentNullException(nameof(parameter)));
-            }
-            catch (Exception)
-            {
-                throw;
-            }
+            _execute(parameter);
         }
     }
 }
