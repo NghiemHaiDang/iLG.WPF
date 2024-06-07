@@ -9,7 +9,7 @@ using System.Windows.Data;
 
 namespace iLG.WPF.Presentation.Resources.Converter
 {
-    public class NumberConverter : IValueConverter
+    public class NumberValueConverter : IValueConverter
     {
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace iLG.WPF.Infrastructure.Entities
 {
-    internal class User
+    public class User
     {
     }
 }

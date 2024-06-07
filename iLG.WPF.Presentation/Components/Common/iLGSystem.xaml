@@ -4,7 +4,6 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:iLG.WPF.Presentation.Components.Common"
-             mc:Ignorable="d" 
-             Style="{StaticResource window-size}">
-            <local:Login></local:Login>
+             mc:Ignorable="d">
+    <local:Login></local:Login>
 </UserControl>

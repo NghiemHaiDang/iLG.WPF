@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:iLG.WPF.Presentation.Views"
         mc:Ignorable="d"
-        Title="BaseView" Height="450" Width="800">
+        Title="iLG" Width="1440" Height="1024"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
-        
+
     </Grid>
 </Window>

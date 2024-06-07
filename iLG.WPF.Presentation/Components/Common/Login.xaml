@@ -4,11 +4,33 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:iLG.WPF.Presentation.Components.Common"
+             xmlns:vm="clr-namespace:iLG.WPF.Presentation.ViewModels"
              mc:Ignorable="d"
              Background="{Binding Source={StaticResource PreBackgound}, Mode=OneWay}">
-    <Grid >
-        <StackPanel Width="915" Height="724" Background="Black">
-            
+    <UserControl.DataContext>
+        <vm:LoginViewModel/>
+    </UserControl.DataContext>
+    <Grid>
+        <StackPanel Width="915" Height="724" Style="{Binding Source={StaticResource background-opacity}}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+            </Grid>
+            <StackPanel Grid.Row="0">
+                <TextBlock Text="iLG" HorizontalAlignment="Center" Style="{StaticResource text-logo}"></TextBlock>
+            </StackPanel>
+            <StackPanel Width="500" Grid.Row="1">
+                <TextBlock Text="SignIn" Style="{StaticResource text-title-1}" Margin="0 20"></TextBlock>
+                <TextBox Height="50" Text="{Binding UserModel.Email, Mode=TwoWay}"></TextBox>
+                <TextBox Height="50" Text="{Binding UserModel.Password, Mode=TwoWay}"></TextBox>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Style="{StaticResource text-description-1}" Text="Forgot Password ?" Margin="0 20 20 0" VerticalAlignment="Center" />
+                    <Button Content="Signin" Margin="0 20 0 0" Command="{Binding LoginCommand}"/>
+                </StackPanel>
+            </StackPanel>
         </StackPanel>
     </Grid>
     
